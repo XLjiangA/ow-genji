@@ -136,7 +136,7 @@ public class genji
                     }
                     L = false;
                 }
-                Thread.Sleep(10);
+                Thread.Sleep(100);
             }
         });
         thread.IsBackground = true;
