@@ -9,7 +9,7 @@
 
 如果你已经拥有以上框架, 那么[软件下载地址](https://github.com/XLjiangA/ow-genji/releases)
 
-!(image)[https://github.com/XLjiangA/ow-genji/master/public/README/form.gif]
+![image](https://github.com/XLjiangA/ow-genji/blob/master/public/README/form.gif)
 
 ### 以下特别感谢
 
