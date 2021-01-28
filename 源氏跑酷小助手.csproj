@@ -135,10 +135,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="public\README\form.gif" />
     <EmbeddedResource Include="img\left.png" />
     <EmbeddedResource Include="img\left1.png" />
     <EmbeddedResource Include="img\right.png" />
     <EmbeddedResource Include="img\right1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
