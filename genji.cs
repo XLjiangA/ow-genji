@@ -136,7 +136,7 @@ public class genji
                     }
                     L = false;
                 }
-                Thread.Sleep(100);
+                Thread.Sleep(globalManager.ins.game.isFront ? 100 : 10);
             }
         });
         thread.IsBackground = true;
