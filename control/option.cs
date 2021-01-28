@@ -21,6 +21,7 @@ namespace control
             num_game.ContextMenu = new ContextMenu();
 
             var gamein = globalManager.ins.game;
+            nBtn_fw.ON = gamein.isFront;
             nbtn_loop.ON = gamein.isLoop;
             lbl_mkey.Text = gamein.cenKey.tokeyname();
             lbl_gmkey.Text = gamein.directionKey.tokeyname();

@@ -1,4 +1,6 @@
 using control;
+using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -52,16 +54,26 @@ public class genji
     {
         return (1600 / globalManager.ins.game.mouseSpeed + 10 / (float)globalManager.ins.game.mouseSpeedInGame) / 2;
     }
+    private void getTime(Action a)
+    {
+        var lt = DateTime.Now;
+        a();
+        var t = DateTime.Now;
+        var ms = (t - lt).TotalMilliseconds;
+        MessageBox.Show(ms.ToString());
+    }
     private void _slip(Direction r)
     {
         var rate = getRate();
         float v = 88 * rate;
         float x = (r == Direction.left) ? -v : v;
+
         for (int i = 0; i < 10; i++)
         {
-            mouseMove((int)x, 0);
-            Thread.Sleep(1);
+            mouseMove((int)x, 0); 
+            Sleep(1);
         }
+
     }
 
     private void slip()
@@ -77,11 +89,27 @@ public class genji
             _slip(Direction.right);
         }
     }
+    private DateTime LastTime { get; set; }
+
+    private DateTime NowTime { get; set; }
+
+
+    private Thread MainThread { get; set; }
+
+
+    private void Sleep(int ms)
+    {
+        LastTime = DateTime.Now;
+
+        do{
+          NowTime = DateTime.Now;
+        } while ((NowTime - LastTime).TotalMilliseconds < ms);
+
+    }
 
     public void Init()
     {
-        screenX = Screen.PrimaryScreen.WorkingArea.Width / 20;
-        Thread thread = new Thread((ThreadStart)delegate
+        MainThread = new Thread((ThreadStart)delegate
         {
             while (true)
             {
@@ -112,18 +140,17 @@ public class genji
                         kybdDown(VK_S);
                         kybdDown(VK_SPACE);
                         kybdUp(VK_SPACE);
-                        Thread.Sleep(1);
+                        Sleep(15);
                         kybdUp(VK_S);
                         kybdDown(VK_S);
                         kybdUp(VK_S);
                         needRes = true;
-
                     }
                     else
                     {
                         kybdDown(VK_SPACE);
                         kybdUp(VK_SPACE);
-                        Thread.Sleep(32);
+                        Sleep(32);
                         slip();
                     }
                 }
@@ -139,8 +166,9 @@ public class genji
                 Thread.Sleep(globalManager.ins.game.isFront ? 100 : 10);
             }
         });
-        thread.IsBackground = true;
-        thread.Start();
+        MainThread.Priority = ThreadPriority.Highest;
+        MainThread.IsBackground = true;
+        MainThread.Start();
     }
 
 
