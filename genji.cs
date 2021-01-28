@@ -108,11 +108,12 @@ public class genji
                     }
                     if (globalManager.ins.game.isFront)
                     {
-                        kybdDown(VK_W);
-                        
+                        // kybdDown(VK_W);
+                        kybdDown(VK_S);
                         kybdDown(VK_SPACE);
                         kybdUp(VK_SPACE);
-                        Thread.Sleep(16);
+                        Thread.Sleep(1);
+                        kybdUp(VK_S);
                         kybdDown(VK_S);
                         kybdUp(VK_S);
                         needRes = true;
@@ -130,7 +131,7 @@ public class genji
                 {
                     if (globalManager.ins.game.isFront && needRes)
                     {
-                        kybdUp(VK_W);
+                        //  kybdUp(VK_W);
                         needRes = false;
                     }
                     L = false;
