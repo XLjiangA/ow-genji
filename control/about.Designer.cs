@@ -143,7 +143,6 @@ namespace control
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer tim_rgb;
-        private option option1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox cImg_avatar;
         private System.Windows.Forms.LinkLabel linkLabel1;

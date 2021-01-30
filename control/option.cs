@@ -9,6 +9,7 @@ namespace control
         public delegateManager.valueUpdataDelegate _valueUpdata;
 
         public static option ins = null;
+
         public option()
         {
             ins = this;
@@ -19,9 +20,8 @@ namespace control
             lbl_mkey.ContextMenu = new ContextMenu();
             num_dpi.ContextMenu = new ContextMenu();
             num_game.ContextMenu = new ContextMenu();
-
             var gamein = globalManager.ins.game;
-            nBtn_fw.ON = gamein.isFront;
+            nbtn_fw.ON = gamein.isFront;
             nbtn_loop.ON = gamein.isLoop;
             lbl_mkey.Text = gamein.cenKey.tokeyname();
             lbl_gmkey.Text = gamein.directionKey.tokeyname();
@@ -119,6 +119,7 @@ namespace control
         }
 
         bool keyChange = false;
+
         private void key_DoubleClick(object sender, EventArgs e)
         {
             var lbl = sender as TextBox;
@@ -171,6 +172,11 @@ namespace control
             valueUpdata(dataType.loop, nval);
             nbtn_loop.Text = nval ? "持续循环" : "一次循环";
         }
+        private void nbtn_fw_Click(object sender, bool nval)
+        {
+            valueUpdata(dataType.front, nval);
+            nbtn_fw.Text = nval ? "正面蹭留" : "侧面蹭留";
+        }
 
         private void img_right_Click(object sender, EventArgs e)
         {
@@ -187,12 +193,6 @@ namespace control
         private void mMouseLeave(object sender, EventArgs e)
         {
             globalManager.ins.waitInput = false;
-        }
-
-        private void nBtn_fw_Click(object sender, bool nval)
-        {
-            valueUpdata(dataType.front, nval);
-            nBtn_fw.Text = nval ? "正面蹭留" : "侧面蹭留";
         }
     }
 }

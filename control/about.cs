@@ -15,15 +15,15 @@ namespace control
             tim_rgb.Enabled = true;
             cImg_avatar.Image = icons.Read["avatar"];
             Colors = new Color[]
-        {
-            Color.Red,
-            Color.Orange,
-            Color.Yellow,
-            Color.Green,
-            Color.Cyan,
-            Color.Blue,
-            Color.Purple
-        };
+            {
+                Color.Red,
+                Color.Orange,
+                Color.Yellow,
+                Color.Green,
+                Color.Cyan,
+                Color.Blue,
+                Color.Purple
+            };
 
         }
 
@@ -31,11 +31,7 @@ namespace control
         {
 
             label2.ForeColor = Colors[i];
-            i++;
-            if (i > 6)
-            {
-                i = 0;
-            }
+            i = i >= 6 ? 0 : i + 1;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

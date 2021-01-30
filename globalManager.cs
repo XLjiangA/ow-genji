@@ -78,6 +78,7 @@ public static class exxxxx
 class globalManager
 {
     private const string GAME_SAVE_PATH = "C:/OW.DATA";
+
     public GameSettin game { get; set; }
 
     public bool waitInput { get; set; }
@@ -86,57 +87,64 @@ class globalManager
 
     public static genji Genji { get; set; }
 
-
-
     public static void Init()
     {
         Genji = new genji();
+
         ins = new globalManager();
+
         ins.game = new GameSettin();
-        if (File.Exists(GAME_SAVE_PATH))
+
+        try
         {
-            var pts = typeof(GameSettin).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            var fs = File.ReadAllLines(GAME_SAVE_PATH).Where(x => !x.Contains("[ GAME-SETTIN ]")).ToArray();
-            for (int i = 0; i < fs.Length; i++)
+            if (File.Exists(GAME_SAVE_PATH))
             {
-                var obj = fs[i].Split(':');
-                if (pts[i].Name == obj[0])
+                var pts = typeof(GameSettin).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                var fs = File.ReadAllLines(GAME_SAVE_PATH).Where(x => !x.Contains("[GAME-SETTIN]")).ToArray();
+                for (int i = 0; i < fs.Length; i++)
                 {
-                    if (pts[i].PropertyType == typeof(bool))
+                    if (fs[i] == string.Empty) continue;
+                    var obj = fs[i].Split(':');
+                    if (pts[i].Name == obj[0])
                     {
-                        pts[i].SetValue(ins.game, bool.Parse(obj[1]));
+                        if (pts[i].PropertyType == typeof(bool))
+                        {
+                            pts[i].SetValue(ins.game, bool.Parse(obj[1]));
+                        }
+                        else
+                        if (pts[i].PropertyType == typeof(int))
+                        {
+                            pts[i].SetValue(ins.game, int.Parse(obj[1]));
+                        }
+                        else if (pts[i].PropertyType == typeof(Direction))
+                        {
+                            pts[i].SetValue(ins.game, Enum.Parse(typeof(Direction), obj[1]));
+                        }
                     }
-                    else
-                    if (pts[i].PropertyType == typeof(int))
-                    {
-                        pts[i].SetValue(ins.game, int.Parse(obj[1]));
-                    }
-                    else if (pts[i].PropertyType == typeof(Direction))
-                    {
-                        pts[i].SetValue(ins.game, Enum.Parse(typeof(Direction), obj[1]));
-                    }
+
                 }
 
             }
 
+            else ins.save();
         }
-        else
+        catch
+        {
+            ins.game = new GameSettin();
             ins.save();
+        }
         Genji.Init();
     }
     public void save()
     {
-
         StringBuilder sb = new StringBuilder();
-        sb.AppendLine("[ GAME-SETTIN ]");
+        sb.AppendLine("[GAME-SETTIN]");
         var pts = typeof(GameSettin).GetProperties(BindingFlags.Public | BindingFlags.Instance);
         foreach (var p in pts)
         {
             sb.AppendLine(string.Format("{0}:{1}", p.Name, p.GetValue(game).ToString()));
         }
         File.WriteAllText(GAME_SAVE_PATH, sb.ToString());
-
-
     }
 }
 

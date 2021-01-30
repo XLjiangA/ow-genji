@@ -14,8 +14,6 @@ public class genji
     private const int VK_W = 87;
     private const int VK_S = 83;
 
-    private float screenX;
-
     [DllImport("User32.dll")]
     private static extern void keybd_event(int kbVk, int bScan, int dwFlags, int dwExtraInfo);
 
@@ -70,7 +68,7 @@ public class genji
 
         for (int i = 0; i < 10; i++)
         {
-            mouseMove((int)x, 0); 
+            mouseMove((int)x, 0);
             Sleep(1);
         }
 
@@ -89,27 +87,19 @@ public class genji
             _slip(Direction.right);
         }
     }
-    private DateTime LastTime { get; set; }
-
-    private DateTime NowTime { get; set; }
-
-
-    private Thread MainThread { get; set; }
-
 
     private void Sleep(int ms)
     {
-        LastTime = DateTime.Now;
-
-        do{
-          NowTime = DateTime.Now;
-        } while ((NowTime - LastTime).TotalMilliseconds < ms);
+        var LastTime = DateTime.Now;
+    lbl_01:
+        var NowTime = DateTime.Now;
+        if ((NowTime - LastTime).TotalMilliseconds < ms) goto lbl_01;
 
     }
 
     public void Init()
     {
-        MainThread = new Thread((ThreadStart)delegate
+        var MainThread = new Thread((ThreadStart)delegate
         {
             while (true)
             {

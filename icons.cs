@@ -10,6 +10,7 @@ public class icons
     public Image this[string key] => _value[key];
 
     public static icons Read { get; set; }
+
     public icons()
     {
         _value = new Dictionary<string, Image>();

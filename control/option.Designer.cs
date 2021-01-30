@@ -48,7 +48,7 @@ namespace control
             this.nbtn_save = new custom.nButton(this.components);
             this.nbtn_loop = new custom.nButton(this.components);
             this.pressKeyTimer = new System.Windows.Forms.Timer(this.components);
-            this.nBtn_fw = new custom.nButton(this.components);
+            this.nbtn_fw = new custom.nButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.img_cen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_qie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_mouse)).BeginInit();
@@ -263,25 +263,25 @@ namespace control
             this.pressKeyTimer.Interval = 330;
             this.pressKeyTimer.Tick += new System.EventHandler(this.pressKeyTimer_Tick);
             // 
-            // nBtn_fw
+            // nbtn_fw
             // 
-            this.nBtn_fw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nBtn_fw.IsRest = false;
-            this.nBtn_fw.Location = new System.Drawing.Point(25, 172);
-            this.nBtn_fw.Name = "nBtn_fw";
-            this.nBtn_fw.ON = false;
-            this.nBtn_fw.Size = new System.Drawing.Size(100, 25);
-            this.nBtn_fw.TabIndex = 17;
-            this.nBtn_fw.Text = "正面蹭留";
-            this.nBtn_fw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nBtn_fw.nButton_ONchange += nBtn_fw_Click;
+            this.nbtn_fw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nbtn_fw.IsRest = false;
+            this.nbtn_fw.Location = new System.Drawing.Point(25, 172);
+            this.nbtn_fw.Name = "nbtn_fw";
+            this.nbtn_fw.ON = false;
+            this.nbtn_fw.Size = new System.Drawing.Size(100, 25);
+            this.nbtn_fw.TabIndex = 17;
+            this.nbtn_fw.Text = "正面蹭留";
+            this.nbtn_fw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nbtn_fw.nButton_ONchange += nbtn_fw_Click;
             // 
             // option
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.nBtn_fw);
+            this.Controls.Add(this.nbtn_fw);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.img_right);
             this.Controls.Add(this.img_left);
@@ -333,6 +333,6 @@ namespace control
         private System.Windows.Forms.PictureBox img_right;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer pressKeyTimer;
-        private custom.nButton nBtn_fw;
+        private custom.nButton nbtn_fw;
     }
 }

@@ -4,6 +4,7 @@
 public static class msgTootip
 {
     private static NotifyIcon _notifyIcon { get; set; }
+
     public static void show(string msg, string tile="")
     {
         int tipShowMilliseconds = 500;

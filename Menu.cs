@@ -136,13 +136,13 @@ public partial class Menu : Form
 
     private void btn_close_Click(object sender, System.EventArgs e)
     {
-        AnimateWindow(this.Handle, 300, AW_HIDE + AW_VER_POSITIVE);
+        AnimateWindow(this.Handle, 300, AW_HIDE + AW_CENTER);
         msgTootip.show("已最小化置托盘");
     }
 
     private void FormShow()
     {
-        AnimateWindow(this.Handle, 300, AW_ACTIVATE + AW_VER_NEGATIVE);
+        AnimateWindow(this.Handle, 300, AW_ACTIVATE + AW_CENTER);
         var area = Screen.GetWorkingArea(Point.Empty);
         Location = new Point(area.Width - Width, area.Height - Height);
         Activate();
