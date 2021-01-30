@@ -74,7 +74,7 @@ namespace control
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if ((e.KeyChar < 48 || e.KeyChar >= 57) && (e.KeyChar != 8) && (e.KeyChar != 46))
+            if ((e.KeyChar < 48 || e.KeyChar >= 57) && (e.KeyChar != 8) && (e.KeyChar == 46))
                 e.Handled = true;
         }
 
@@ -166,9 +166,10 @@ namespace control
             }
         }
 
-        private void nbtn_loop_Click(object sender, EventArgs e)
+        private void nbtn_loop_Click(object sender, bool nval)
         {
-            valueUpdata(dataType.loop, nbtn_loop.ON);
+            valueUpdata(dataType.loop, nval);
+            nbtn_loop.Text = nval ? "持续循环" : "一次循环";
         }
 
         private void img_right_Click(object sender, EventArgs e)
@@ -188,9 +189,10 @@ namespace control
             globalManager.ins.waitInput = false;
         }
 
-        private void nBtn_fw_Click(object sender, EventArgs e)
+        private void nBtn_fw_Click(object sender, bool nval)
         {
-            valueUpdata(dataType.front, nBtn_fw.ON);
+            valueUpdata(dataType.front, nval);
+            nBtn_fw.Text = nval ? "正面蹭留" : "侧面蹭留";
         }
     }
 }

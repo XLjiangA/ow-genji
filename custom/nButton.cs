@@ -13,10 +13,16 @@ namespace custom
             ON = false;
             IsRest = false;
             Size = new Size(100, 25);
+
         }
         public bool IsRest { get; set; }
 
         private bool _on = false;
+
+        public delegate void nButton_ONchangeDelegate(object sender, bool nval);
+
+        public event nButton_ONchangeDelegate nButton_ONchange;
+
         public bool ON
         {
             get
@@ -26,15 +32,19 @@ namespace custom
             }
             set
             {
-                ONChange(value);
+                if (nButton_ONchange == null)
+                {
+                    nButton_ONchange += ONChange;
+                }
+                nButton_ONchange(this, value);
                 _on = value;
             }
         }
-        protected void ONChange(bool newvalue)
+        public void ONChange(object sender, bool nval)
         {
             try
             {
-                if (newvalue)
+                if (nval)
                 {
                     Image = new Bitmap(icons.Read["on"], new Size(40, 40));
 

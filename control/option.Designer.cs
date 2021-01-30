@@ -256,7 +256,7 @@ namespace control
             this.nbtn_loop.TabIndex = 12;
             this.nbtn_loop.Text = "持续循环";
             this.nbtn_loop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nbtn_loop.Click += new System.EventHandler(this.nbtn_loop_Click);
+            this.nbtn_loop.nButton_ONchange += this.nbtn_loop_Click;
             // 
             // pressKeyTimer
             // 
@@ -274,7 +274,7 @@ namespace control
             this.nBtn_fw.TabIndex = 17;
             this.nBtn_fw.Text = "正面蹭留";
             this.nBtn_fw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nBtn_fw.Click += new System.EventHandler(this.nBtn_fw_Click);
+            this.nBtn_fw.nButton_ONchange += nBtn_fw_Click;
             // 
             // option
             // 
