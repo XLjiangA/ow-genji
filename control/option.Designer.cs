@@ -1,5 +1,5 @@
 ﻿
-namespace control
+namespace ow.control
 {
     partial class option
     {

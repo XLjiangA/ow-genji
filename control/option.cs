@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ow.img;
+using ow.manager;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace control
+namespace ow.control
 {
     public partial class option : UserControl
     {
@@ -20,7 +22,7 @@ namespace control
             lbl_mkey.ContextMenu = new ContextMenu();
             num_dpi.ContextMenu = new ContextMenu();
             num_game.ContextMenu = new ContextMenu();
-            var gamein = globalManager.ins.game;
+            var gamein = globalManager.instance.ow;
             nbtn_fw.ON = gamein.isFront;
             nbtn_loop.ON = gamein.isLoop;
             lbl_mkey.Text = gamein.cenKey.tokeyname();
@@ -34,33 +36,33 @@ namespace control
             switch (dt)
             {
                 case dataType.front:
-                    globalManager.ins.game.isFront = (bool)newobj;
+                    globalManager.instance.ow.isFront = (bool)newobj;
                     break;
                 case dataType.loop:
-                    globalManager.ins.game.isLoop = (bool)newobj;
+                    globalManager.instance.ow.isLoop = (bool)newobj;
                     break;
                 case dataType.cenkey:
-                    globalManager.ins.game.cenKey = (int)newobj;
+                    globalManager.instance.ow.cenKey = (int)newobj;
                     break;
                 case dataType.dirkey:
-                    globalManager.ins.game.directionKey = (int)newobj;
+                    globalManager.instance.ow.directionKey = (int)newobj;
                     break;
                 case dataType.mspeed:
-                    globalManager.ins.game.mouseSpeed = (int)newobj;
+                    globalManager.instance.ow.mouseSpeed = (int)newobj;
                     break;
                 case dataType.gmspeed:
-                    globalManager.ins.game.mouseSpeedInGame = (int)newobj;
+                    globalManager.instance.ow.mouseSpeedInGame = (int)newobj;
                     break;
                 case dataType.dir:
-                    globalManager.ins.game.cenDirection = (Direction)newobj;
+                    globalManager.instance.ow.cenDirection = (Direction)newobj;
                     direction_change();
                     break;
             }
         }
         private void direction_change()
         {
-            img_left.Image = globalManager.ins.game.cenDirection == Direction.left ? icons.Read["left"] : icons.Read["left1"];
-            img_right.Image = globalManager.ins.game.cenDirection == Direction.right ? icons.Read["right"] : icons.Read["right1"];
+            img_left.Image = globalManager.instance.ow.cenDirection == Direction.left ? icons.Read["left"] : icons.Read["left1"];
+            img_right.Image = globalManager.instance.ow.cenDirection == Direction.right ? icons.Read["right"] : icons.Read["right1"];
         }
         private void loadAllImage()
         {
@@ -114,7 +116,7 @@ namespace control
 
         private void nButton2_Click(object sender, EventArgs e)
         {
-            globalManager.ins.save();
+            globalManager.instance.ow.save();
             msgTootip.show("保存成功");
         }
 
@@ -187,12 +189,12 @@ namespace control
 
         private void mMouseHover(object sender, EventArgs e)
         {
-            globalManager.ins.waitInput = true;
+            globalManager.instance.waitInput = true;
         }
 
         private void mMouseLeave(object sender, EventArgs e)
         {
-            globalManager.ins.waitInput = false;
+            globalManager.instance.waitInput = false;
         }
     }
 }

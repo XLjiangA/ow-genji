@@ -70,17 +70,17 @@
     <Compile Include="custom\nButton.Designer.cs">
       <DependentUpon>nButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="delegateManager.cs" />
+    <Compile Include="Manager\delegateManager.cs" />
     <Compile Include="genji.cs" />
-    <Compile Include="globalManager.cs" />
-    <Compile Include="icons.cs" />
-    <Compile Include="Menu.cs">
+    <Compile Include="Manager\globalManager.cs" />
+    <Compile Include="img\icons.cs" />
+    <Compile Include="control\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="control\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="msgTootip.cs" />
+    <Compile Include="control\msgTootip.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="control\about.resx">
@@ -89,7 +89,7 @@
     <EmbeddedResource Include="control\option.resx">
       <DependentUpon>option.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="control\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

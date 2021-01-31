@@ -1,9 +1,10 @@
-﻿using System;
+﻿using ow.img;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace control
+namespace ow.control
 {
     public partial class about : UserControl
     {

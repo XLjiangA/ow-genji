@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
 static class Program
 {
     /// <summary>
@@ -12,7 +11,7 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new Menu());
+        Application.Run(new ow.control.Menu());
     }
 }
 

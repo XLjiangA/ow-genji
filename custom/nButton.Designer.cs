@@ -1,5 +1,5 @@
 ﻿
-namespace custom
+namespace ow.custom
 {
     partial class nButton
     {

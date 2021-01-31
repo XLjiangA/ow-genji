@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using ow.img;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace custom
+namespace ow.custom
 {
     public partial class nButton : Label
     {
