@@ -1,8 +1,10 @@
-﻿using control;
+using control;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Windows.Forms;
 
 enum FormState
@@ -60,10 +62,23 @@ public partial class Menu : Form
         UpdateForm(state);
     }
 
+    public static bool IsAdministrator()
+    {
+        WindowsIdentity current = WindowsIdentity.GetCurrent();
+        WindowsPrincipal windowsPrincipal = new WindowsPrincipal(current);
+        return windowsPrincipal.IsInRole(WindowsBuiltInRole.Administrator);
+    }
+
     private about _about = null;
     private option _option = null;
     private void Menu_Load(object sender, System.EventArgs e)
     {
+        if (!IsAdministrator())
+        {
+            msgTootip.show("请使用管理员权限打开本程序!", "提示信息", 10000);
+            //MessageBox.Show("请使用管理员权限打开本程序!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Process.GetCurrentProcess().Kill();
+        }
         FormShow();
         _about = new about();
         _about.Dock = DockStyle.Fill;
