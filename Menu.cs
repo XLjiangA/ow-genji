@@ -75,7 +75,8 @@ public partial class Menu : Form
     {
         if (!IsAdministrator())
         {
-            MessageBox.Show("请使用管理员权限打开本程序!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            msgTootip.show("请使用管理员权限打开本程序!", "提示信息", 10000);
+            //MessageBox.Show("请使用管理员权限打开本程序!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Process.GetCurrentProcess().Kill();
         }
         FormShow();
@@ -183,4 +184,3 @@ public partial class Menu : Form
         Environment.Exit(0);
     }
 }
-
