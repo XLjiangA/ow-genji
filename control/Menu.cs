@@ -14,33 +14,33 @@ namespace ow.control
         about,
         option
     }
-    public partial class Menu : Form
+    public partial class menu : Form
     {
+        [DllImport("user32.dll")]
+        public static extern int SetClassLong(IntPtr hwnd, int nIndex, int dwNewLong);
+
+        [DllImport("user32.dll")]
+        public static extern int GetClassLong(IntPtr hwnd, int nIndex);
+
         [DllImport("user32.dll", EntryPoint = "AnimateWindow")]
         private static extern bool AnimateWindow(IntPtr handle, int ms, int flags);
 
-        public const Int32 AW_HOR_POSITIVE = 0x00000001;
+        private const Int32 AW_CENTER = 0x00000010;
 
-        public const Int32 AW_HOR_NEGATIVE = 0x00000002;
+        private const Int32 AW_HIDE = 0x00010000;
 
-        public const Int32 AW_VER_POSITIVE = 0x00000004;
+        private const Int32 AW_ACTIVATE = 0x00020000;
 
-        public const Int32 AW_VER_NEGATIVE = 0x00000008;
+        private const Int32 CS_SHADOW = 0x20000;
 
-        public const Int32 AW_CENTER = 0x00000010;
-
-        public const Int32 AW_HIDE = 0x00010000;
-
-        public const Int32 AW_ACTIVATE = 0x00020000;
-
-        public const Int32 AW_SLIDE = 0x00040000;
-
-        public const Int32 AW_BLEND = 0x00080000;
+        private const Int32 GCL_STYLE = -26;
 
         private FormState formState = FormState.none;
 
-        public Menu()
+        public menu()
         {
+
+            SetClassLong(this.Handle, GCL_STYLE, GetClassLong(this.Handle, GCL_STYLE) | CS_SHADOW);
             InitializeComponent();
             notifyIcon1.Text = lbl_tile.Text;
             notifyIcon1.Icon = Icon;
@@ -93,7 +93,7 @@ namespace ow.control
         private void mouseHover(object sender, System.EventArgs e)
         {
             var img = sender as PictureBox;
-            img.BackColor = Color.DeepSkyBlue;
+            img.BackColor = Color.White;
             img.Image = icons.Read["close1"];
         }
 

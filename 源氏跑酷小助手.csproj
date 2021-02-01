@@ -74,11 +74,11 @@
     <Compile Include="genji.cs" />
     <Compile Include="Manager\globalManager.cs" />
     <Compile Include="img\icons.cs" />
-    <Compile Include="control\Menu.cs">
+    <Compile Include="control\menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="control\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="control\menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
     </Compile>
     <Compile Include="control\msgTootip.cs" />
     <Compile Include="Program.cs" />
@@ -89,8 +89,8 @@
     <EmbeddedResource Include="control\option.resx">
       <DependentUpon>option.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="control\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="control\menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,10 +117,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="img\close.png" />
-    <EmbeddedResource Include="img\close1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="img\avatar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <EmbeddedResource Include="img\close.png" />
+    <EmbeddedResource Include="img\close1.png" />
     <None Include="public\README\form.gif" />
     <EmbeddedResource Include="img\left.png" />
     <EmbeddedResource Include="img\left1.png" />

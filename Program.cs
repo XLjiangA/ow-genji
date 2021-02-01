@@ -11,7 +11,7 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new ow.control.Menu());
+        Application.Run(new ow.control.menu());
     }
 }
 
