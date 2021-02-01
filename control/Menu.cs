@@ -16,35 +16,109 @@ namespace ow.control
     }
     public partial class menu : Form
     {
-        [DllImport("user32.dll")]
-        public static extern int SetClassLong(IntPtr hwnd, int nIndex, int dwNewLong);
-
-        [DllImport("user32.dll")]
-        public static extern int GetClassLong(IntPtr hwnd, int nIndex);
-
-        [DllImport("user32.dll", EntryPoint = "AnimateWindow")]
-        private static extern bool AnimateWindow(IntPtr handle, int ms, int flags);
-
-        private const Int32 AW_CENTER = 0x00000010;
-
-        private const Int32 AW_HIDE = 0x00010000;
-
-        private const Int32 AW_ACTIVATE = 0x00020000;
-
-        private const Int32 CS_SHADOW = 0x20000;
-
-        private const Int32 GCL_STYLE = -26;
 
         private FormState formState = FormState.none;
 
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
+        [DllImport("dwmapi.dll")]
+        private static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
+
+        [DllImport("dwmapi.dll")]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
+
+        [DllImport("dwmapi.dll")]
+        private static extern int DwmIsCompositionEnabled(ref int pfEnabled);
+
+        private bool m_aeroEnabled;
+
+        private const int CS_DROPSHADOW = 0x00020000;
+
+        private const int WM_NCPAINT = 0x0085;
+
+        private const int WM_ACTIVATEAPP = 0x001C;
+
+        private struct MARGINS
+        {
+            public int leftWidth;
+            public int rightWidth;
+            public int topHeight;
+            public int bottomHeight;
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HTCLIENT = 0x1;
+        private const int HTCAPTION = 0x2;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                m_aeroEnabled = CheckAeroEnabled();
+                CreateParams cp = base.CreateParams;
+                if (!m_aeroEnabled)
+                    cp.ClassStyle |= CS_DROPSHADOW;
+
+                return cp;
+            }
+        }
+
+        private bool CheckAeroEnabled()
+        {
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                int enabled = 0;
+                DwmIsCompositionEnabled(ref enabled);
+                return (enabled == 1) ? true : false;
+            }
+            return false;
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case WM_NCPAINT:
+                case WM_ACTIVATEAPP:
+                    if (m_aeroEnabled)
+                    {
+                        var v = 2;
+                        DwmSetWindowAttribute(this.Handle, 2, ref v, 4);
+                        MARGINS margins = new MARGINS()
+                        {
+                            bottomHeight = 1,
+                            leftWidth = 1,
+                            rightWidth = 1,
+                            topHeight = 1
+                        };
+                        DwmExtendFrameIntoClientArea(this.Handle, ref margins);
+
+                    }
+                    break;
+                default:
+                    break;
+            }
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST && (int)m.Result == HTCLIENT)
+                m.Result = (IntPtr)HTCAPTION;
+
+        }
+        private void SelectButton(Button button)
+        {
+            MethodInfo methodinfo = button.GetType().GetMethod("SetStyle", BindingFlags.NonPublic | BindingFlags.Instance);
+            methodinfo.Invoke(button, BindingFlags.NonPublic, null, new object[] { ControlStyles.Selectable, false }, null);
+        }
         public menu()
         {
-
-            SetClassLong(this.Handle, GCL_STYLE, GetClassLong(this.Handle, GCL_STYLE) | CS_SHADOW);
+            m_aeroEnabled = false;
+            this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             notifyIcon1.Text = lbl_tile.Text;
             notifyIcon1.Icon = Icon;
             typeof(msgTootip).GetProperty("_notifyIcon", BindingFlags.NonPublic | BindingFlags.Static).SetValue(null, notifyIcon1);
+            SelectButton(btn_option);
+            SelectButton(btn_about);
             loadAllImage();
             globalManager.Init();
         }
@@ -141,15 +215,13 @@ namespace ow.control
 
         private void btn_close_Click(object sender, System.EventArgs e)
         {
-            AnimateWindow(this.Handle, 300, AW_HIDE + AW_CENTER);
+            Visible = false;
             msgTootip.show("已最小化置托盘");
         }
 
         private void FormShow()
         {
-            AnimateWindow(this.Handle, 300, AW_ACTIVATE + AW_CENTER);
-            var area = Screen.GetWorkingArea(Point.Empty);
-            Location = new Point(area.Width - Width, area.Height - Height);
+            Visible = true;
             Activate();
         }
         private void 显示设置ToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -173,7 +245,10 @@ namespace ow.control
             Environment.Exit(0);
         }
 
-
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            FormShow();
+        }
     }
 
 }
