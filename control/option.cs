@@ -16,6 +16,8 @@ namespace ow.control
         {
             ins = this;
             InitializeComponent();
+            nbtn_fw.nButton_ONchange += nbtn_fw_Click;
+            nbtn_loop.nButton_ONchange += nbtn_loop_Click;
             _valueUpdata += valueUpdata;
             loadAllImage();
             lbl_gmkey.ContextMenu = new ContextMenu();
