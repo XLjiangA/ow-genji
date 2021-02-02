@@ -30,49 +30,31 @@ namespace ow.control
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.tim_rgb = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.cImg_avatar = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.img_qq = new System.Windows.Forms.PictureBox();
+            this.img_git = new System.Windows.Forms.PictureBox();
+            this.img_bili = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cImg_avatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_qq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_git)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_bili)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(88, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "源氏蹭墙小助手";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(129, 69);
+            this.label2.Location = new System.Drawing.Point(128, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "艾莉丝#51209";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.label3.Location = new System.Drawing.Point(89, 261);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(210, 14);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "本程序基于.Net 4.5.2 框架编写";
             // 
             // tim_rgb
             // 
@@ -88,9 +70,9 @@ namespace ow.control
             // 
             // cImg_avatar
             // 
-            this.cImg_avatar.Location = new System.Drawing.Point(141, 101);
+            this.cImg_avatar.Location = new System.Drawing.Point(155, 59);
             this.cImg_avatar.Name = "cImg_avatar";
-            this.cImg_avatar.Size = new System.Drawing.Size(80, 80);
+            this.cImg_avatar.Size = new System.Drawing.Size(50, 50);
             this.cImg_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.cImg_avatar.TabIndex = 3;
             this.cImg_avatar.TabStop = false;
@@ -107,45 +89,80 @@ namespace ow.control
             this.linkLabel1.Text = "源氏跑酷交流群: 241328872";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // label5
+            // img_qq
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.ForeColor = System.Drawing.Color.Teal;
-            this.label5.Location = new System.Drawing.Point(79, 222);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 14);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "感谢宠坏万千少女分享正面蹭留思路";
+            this.img_qq.Location = new System.Drawing.Point(234, 297);
+            this.img_qq.Name = "img_qq";
+            this.img_qq.Size = new System.Drawing.Size(25, 25);
+            this.img_qq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.img_qq.TabIndex = 7;
+            this.img_qq.TabStop = false;
+            this.img_qq.Click += new System.EventHandler(this.img_qq_Click);
+            // 
+            // img_git
+            // 
+            this.img_git.Location = new System.Drawing.Point(271, 297);
+            this.img_git.Name = "img_git";
+            this.img_git.Size = new System.Drawing.Size(25, 25);
+            this.img_git.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.img_git.TabIndex = 8;
+            this.img_git.TabStop = false;
+            this.img_git.Click += new System.EventHandler(this.img_git_Click);
+            // 
+            // img_bili
+            // 
+            this.img_bili.Location = new System.Drawing.Point(307, 297);
+            this.img_bili.Name = "img_bili";
+            this.img_bili.Size = new System.Drawing.Size(25, 25);
+            this.img_bili.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.img_bili.TabIndex = 9;
+            this.img_bili.TabStop = false;
+            this.img_bili.Click += new System.EventHandler(this.img_bili_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(63, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(269, 60);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "哇你看她会发光诶#5776 - 制作软件的想法来源\r\n\r\nMasterZ - 提供侧面蹭墙留爬宏文件以及实现思路\r\n\r\n宠坏万千少女#5212 - 提供正面蹭墙留" +
+    "爬思路\r\n";
             // 
             // about
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.img_bili);
+            this.Controls.Add(this.img_git);
+            this.Controls.Add(this.img_qq);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.cImg_avatar);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "about";
             this.Size = new System.Drawing.Size(398, 374);
             ((System.ComponentModel.ISupportInitialize)(this.cImg_avatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_qq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_git)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_bili)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer tim_rgb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox cImg_avatar;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox img_qq;
+        private System.Windows.Forms.PictureBox img_git;
+        private System.Windows.Forms.PictureBox img_bili;
+        private System.Windows.Forms.Label label1;
     }
 }
