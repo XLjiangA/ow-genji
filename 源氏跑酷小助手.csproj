@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <EmbeddedResource Include="img\about.png" />
     <EmbeddedResource Include="img\bili.png" />
     <EmbeddedResource Include="img\git.png" />
     <EmbeddedResource Include="img\qq.png" />

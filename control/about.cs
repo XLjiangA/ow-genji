@@ -15,6 +15,7 @@ namespace ow.control
             InitializeComponent();
             tim_rgb.Enabled = true;
             cImg_avatar.Image = icons.Read["avatar"];
+            cImg_about.Image = icons.Read["about"];
             img_qq.Image = icons.Read["qq"];
             img_git.Image = icons.Read["git"];
             img_bili.Image = icons.Read["bili"];

@@ -39,10 +39,12 @@ namespace ow.control
             this.img_git = new System.Windows.Forms.PictureBox();
             this.img_bili = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cImg_about = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.cImg_avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_qq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_git)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_bili)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cImg_about)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -124,18 +126,28 @@ namespace ow.control
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(63, 130);
+            this.label1.Location = new System.Drawing.Point(79, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 60);
             this.label1.TabIndex = 10;
             this.label1.Text = "哇你看她会发光诶#5776 - 制作软件的想法来源\r\n\r\nMasterZ - 提供侧面蹭墙留爬宏文件以及实现思路\r\n\r\n宠坏万千少女#5212 - 提供正面蹭墙留" +
     "爬思路\r\n";
             // 
+            // cImg_about
+            // 
+            this.cImg_about.Location = new System.Drawing.Point(31, 139);
+            this.cImg_about.Name = "cImg_about";
+            this.cImg_about.Size = new System.Drawing.Size(32, 32);
+            this.cImg_about.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cImg_about.TabIndex = 11;
+            this.cImg_about.TabStop = false;
+            // 
             // about
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cImg_about);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.img_bili);
             this.Controls.Add(this.img_git);
@@ -149,6 +161,7 @@ namespace ow.control
             ((System.ComponentModel.ISupportInitialize)(this.img_qq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_git)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_bili)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cImg_about)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +177,6 @@ namespace ow.control
         private System.Windows.Forms.PictureBox img_git;
         private System.Windows.Forms.PictureBox img_bili;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox cImg_about;
     }
 }
