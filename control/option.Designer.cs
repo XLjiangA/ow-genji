@@ -45,10 +45,10 @@ namespace ow.control
             this.img_left = new System.Windows.Forms.PictureBox();
             this.img_right = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.nbtn_save = new custom.nButton(this.components);
-            this.nbtn_loop = new custom.nButton(this.components);
             this.pressKeyTimer = new System.Windows.Forms.Timer(this.components);
-            this.nbtn_fw = new custom.nButton(this.components);
+            this.nbtn_fw = new ow.custom.nButton(this.components);
+            this.nbtn_save = new ow.custom.nButton(this.components);
+            this.nbtn_loop = new ow.custom.nButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.img_cen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_qie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_mouse)).BeginInit();
@@ -80,16 +80,17 @@ namespace ow.control
             // 
             this.lbl_mkey.BackColor = System.Drawing.Color.White;
             this.lbl_mkey.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbl_mkey.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lbl_mkey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_mkey.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_mkey.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbl_mkey.ForeColor = System.Drawing.Color.Gold;
-            this.lbl_mkey.Location = new System.Drawing.Point(116, 27);
+            this.lbl_mkey.Location = new System.Drawing.Point(116, 26);
             this.lbl_mkey.MaxLength = 20;
             this.lbl_mkey.Name = "lbl_mkey";
             this.lbl_mkey.ReadOnly = true;
             this.lbl_mkey.Size = new System.Drawing.Size(60, 16);
             this.lbl_mkey.TabIndex = 2;
-            this.lbl_mkey.Text = "mouse1";
+            this.lbl_mkey.Text = "MOUSE1";
             this.lbl_mkey.DoubleClick += new System.EventHandler(this.key_DoubleClick);
             this.lbl_mkey.MouseLeave += new System.EventHandler(this.mMouseLeave);
             this.lbl_mkey.MouseHover += new System.EventHandler(this.mMouseHover);
@@ -100,16 +101,17 @@ namespace ow.control
             // 
             this.lbl_gmkey.BackColor = System.Drawing.Color.White;
             this.lbl_gmkey.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbl_gmkey.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lbl_gmkey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_gmkey.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_gmkey.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbl_gmkey.ForeColor = System.Drawing.Color.Gold;
-            this.lbl_gmkey.Location = new System.Drawing.Point(116, 61);
+            this.lbl_gmkey.Location = new System.Drawing.Point(116, 60);
             this.lbl_gmkey.MaxLength = 20;
             this.lbl_gmkey.Name = "lbl_gmkey";
             this.lbl_gmkey.ReadOnly = true;
             this.lbl_gmkey.Size = new System.Drawing.Size(60, 16);
             this.lbl_gmkey.TabIndex = 5;
-            this.lbl_gmkey.Text = "mouse1";
+            this.lbl_gmkey.Text = "MOUSE1";
             this.lbl_gmkey.DoubleClick += new System.EventHandler(this.key_DoubleClick);
             this.lbl_gmkey.MouseLeave += new System.EventHandler(this.mMouseLeave);
             this.lbl_gmkey.MouseHover += new System.EventHandler(this.mMouseHover);
@@ -178,7 +180,7 @@ namespace ow.control
             this.num_dpi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.num_dpi.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num_dpi.ForeColor = System.Drawing.Color.Gold;
-            this.num_dpi.Location = new System.Drawing.Point(133, 97);
+            this.num_dpi.Location = new System.Drawing.Point(130, 97);
             this.num_dpi.MaxLength = 5;
             this.num_dpi.Name = "num_dpi";
             this.num_dpi.Size = new System.Drawing.Size(43, 16);
@@ -192,7 +194,7 @@ namespace ow.control
             this.num_game.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.num_game.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num_game.ForeColor = System.Drawing.Color.Gold;
-            this.num_game.Location = new System.Drawing.Point(133, 132);
+            this.num_game.Location = new System.Drawing.Point(131, 132);
             this.num_game.MaxLength = 3;
             this.num_game.Name = "num_game";
             this.num_game.Size = new System.Drawing.Size(43, 16);
@@ -232,6 +234,23 @@ namespace ow.control
             this.label7.TabIndex = 16;
             this.label7.Text = "当前蹭留方向";
             // 
+            // pressKeyTimer
+            // 
+            this.pressKeyTimer.Interval = 330;
+            this.pressKeyTimer.Tick += new System.EventHandler(this.pressKeyTimer_Tick);
+            // 
+            // nbtn_fw
+            // 
+            this.nbtn_fw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nbtn_fw.IsRest = false;
+            this.nbtn_fw.Location = new System.Drawing.Point(25, 172);
+            this.nbtn_fw.Name = "nbtn_fw";
+            this.nbtn_fw.ON = false;
+            this.nbtn_fw.Size = new System.Drawing.Size(100, 25);
+            this.nbtn_fw.TabIndex = 17;
+            this.nbtn_fw.Text = "正面蹭留";
+            this.nbtn_fw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // nbtn_save
             // 
             this.nbtn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,25 +275,6 @@ namespace ow.control
             this.nbtn_loop.TabIndex = 12;
             this.nbtn_loop.Text = "持续循环";
             this.nbtn_loop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nbtn_loop.nButton_ONchange += this.nbtn_loop_Click;
-            // 
-            // pressKeyTimer
-            // 
-            this.pressKeyTimer.Interval = 330;
-            this.pressKeyTimer.Tick += new System.EventHandler(this.pressKeyTimer_Tick);
-            // 
-            // nbtn_fw
-            // 
-            this.nbtn_fw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nbtn_fw.IsRest = false;
-            this.nbtn_fw.Location = new System.Drawing.Point(25, 172);
-            this.nbtn_fw.Name = "nbtn_fw";
-            this.nbtn_fw.ON = false;
-            this.nbtn_fw.Size = new System.Drawing.Size(100, 25);
-            this.nbtn_fw.TabIndex = 17;
-            this.nbtn_fw.Text = "正面蹭留";
-            this.nbtn_fw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nbtn_fw.nButton_ONchange += nbtn_fw_Click;
             // 
             // option
             // 

@@ -151,7 +151,7 @@ namespace ow.control
                 keyChange = false;
                 valueUpdata(!lbl.Name.Contains("gmkey") ? dataType.cenkey : dataType.dirkey, mKey.Button);
             }
-            else if (lbl.Text == "pressKey")
+            else if (lbl.Text == "presskey".ToUpper())
             {
                 keyChange = true;
             }
