@@ -2,14 +2,17 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace ow.control
 {
     public partial class about : UserControl
     {
-        Color[] Colors = null;
-        int i = 0;
+        private Color[] Colors = null;
+
+        private int i = 0;
+
         public about()
         {
             InitializeComponent();
@@ -29,12 +32,10 @@ namespace ow.control
                 Color.Blue,
                 Color.Purple
             };
-
         }
 
         private void tim_rgb_Tick(object sender, EventArgs e)
         {
-
             label2.ForeColor = Colors[i];
             i = i >= 6 ? 0 : i + 1;
         }
@@ -58,5 +59,16 @@ namespace ow.control
         {
             Process.Start("tencent://message/?uin=1723955942");
         }
+
+        private void i_MouseEnter(object sender, EventArgs e)
+        {
+            (sender as Control).Size = new Size(26, 26);
+        }
+
+        private void i_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Control).Size = new Size(22, 22);
+        }
+
     }
 }

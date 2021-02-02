@@ -93,33 +93,39 @@ namespace ow.control
             // 
             // img_qq
             // 
-            this.img_qq.Location = new System.Drawing.Point(234, 297);
+            this.img_qq.Location = new System.Drawing.Point(232, 313);
             this.img_qq.Name = "img_qq";
-            this.img_qq.Size = new System.Drawing.Size(25, 25);
+            this.img_qq.Size = new System.Drawing.Size(22, 22);
             this.img_qq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.img_qq.TabIndex = 7;
             this.img_qq.TabStop = false;
             this.img_qq.Click += new System.EventHandler(this.img_qq_Click);
+            this.img_qq.MouseEnter += new System.EventHandler(this.i_MouseEnter);
+            this.img_qq.MouseLeave += new System.EventHandler(this.i_MouseLeave);
             // 
             // img_git
             // 
-            this.img_git.Location = new System.Drawing.Point(271, 297);
+            this.img_git.Location = new System.Drawing.Point(269, 313);
             this.img_git.Name = "img_git";
-            this.img_git.Size = new System.Drawing.Size(25, 25);
+            this.img_git.Size = new System.Drawing.Size(22, 22);
             this.img_git.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.img_git.TabIndex = 8;
             this.img_git.TabStop = false;
             this.img_git.Click += new System.EventHandler(this.img_git_Click);
+            this.img_git.MouseEnter += new System.EventHandler(this.i_MouseEnter);
+            this.img_git.MouseLeave += new System.EventHandler(this.i_MouseLeave);
             // 
             // img_bili
             // 
-            this.img_bili.Location = new System.Drawing.Point(307, 297);
+            this.img_bili.Location = new System.Drawing.Point(305, 313);
             this.img_bili.Name = "img_bili";
-            this.img_bili.Size = new System.Drawing.Size(25, 25);
+            this.img_bili.Size = new System.Drawing.Size(22, 22);
             this.img_bili.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.img_bili.TabIndex = 9;
             this.img_bili.TabStop = false;
             this.img_bili.Click += new System.EventHandler(this.img_bili_Click);
+            this.img_bili.MouseEnter += new System.EventHandler(this.i_MouseEnter);
+            this.img_bili.MouseLeave += new System.EventHandler(this.i_MouseLeave);
             // 
             // label1
             // 
@@ -135,9 +141,9 @@ namespace ow.control
             // 
             // cImg_about
             // 
-            this.cImg_about.Location = new System.Drawing.Point(31, 139);
+            this.cImg_about.Location = new System.Drawing.Point(37, 139);
             this.cImg_about.Name = "cImg_about";
-            this.cImg_about.Size = new System.Drawing.Size(32, 32);
+            this.cImg_about.Size = new System.Drawing.Size(26, 26);
             this.cImg_about.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.cImg_about.TabIndex = 11;
             this.cImg_about.TabStop = false;

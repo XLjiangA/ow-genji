@@ -164,7 +164,7 @@ namespace ow.control
 
         }
 
-        private void mouseHover(object sender, System.EventArgs e)
+        private void mouseEnter(object sender, System.EventArgs e)
         {
             var img = sender as PictureBox;
             img.BackColor = Color.White;

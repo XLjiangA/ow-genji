@@ -152,7 +152,7 @@
             this.btn_close.TabStop = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             this.btn_close.MouseLeave += new System.EventHandler(this.mouseLeave);
-            this.btn_close.MouseHover += new System.EventHandler(this.mouseHover);
+            this.btn_close.MouseEnter += new System.EventHandler(this.mouseEnter);
             // 
             // main_pnl
             // 
