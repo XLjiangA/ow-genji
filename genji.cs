@@ -130,12 +130,12 @@ namespace ow
                         {
                             // kybdDown(VK_W);
                             kybdDown(VK_S);
+                            Sleep(1);
                             kybdDown(VK_SPACE);
+                            Sleep(20);
+                            kybdUp(VK_S);
+                            Sleep(1);
                             kybdUp(VK_SPACE);
-                            Sleep(15);
-                            kybdUp(VK_S);
-                            kybdDown(VK_S);
-                            kybdUp(VK_S);
                             needRes = true;
                         }
                         else
@@ -155,10 +155,9 @@ namespace ow
                         }
                         L = false;
                     }
-                    Thread.Sleep(globalManager.instance.ow.isFront ? 100 : 10);
+                    Sleep(globalManager.instance.ow.isFront ? 100 : 10);
                 }
             });
-            MainThread.Priority = ThreadPriority.Highest;
             MainThread.IsBackground = true;
             MainThread.Start();
         }
